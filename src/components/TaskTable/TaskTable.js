@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
+import Modal from "./Modal.js";
+import TableRow from "./TableRow.js";
 
 const TaskTable = () => {
   const [tasks, setTasks] = useState([]);
-
-  const handleEdit = (task) => {
-    console.log(task);
-  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/getTasksToDo`)
@@ -13,10 +11,6 @@ const TaskTable = () => {
       .then((data) => setTasks(data));
   }, []);
 
-  //   const editTask = (taskTitle) => {
-  //     let gg = prompt("Edit the task");
-  //     console.log(gg);
-  //   };
   const taskCompleted = (e, task) => {
     fetch(`http://localhost:5000/task-complete/${task._id}`, {
       method: "PATCH",
@@ -31,57 +25,36 @@ const TaskTable = () => {
       });
   };
 
+  const handleEditClick = async (event, task) => {
+    event.preventDefault();
+    let value = parseInt(
+      prompt("How many quantities do you want to re-stock?", task._id)
+    );
+
+    console.log("new stock: ", value);
+    // console.log(itemName);
+  };
+
   return (
-    <div class="overflow-x-auto ">
+    <div class="overflow-x-auto">
       <table class="table w-full border-b-2">
         {/* <!-- head --> */}
         <thead>
           <tr>
-            <th>
-              {/* <label>
-                <input type="checkbox" class="checkbox" />
-              </label> */}
-            </th>
+            <th></th>
             <th className="">Task id</th>
             <th>Task Title</th>
-
             <th></th>
           </tr>
         </thead>
+
         <tbody>
           {/* <!-- row 1 --> */}
           {tasks.map((task) =>
             task.isComplete ? (
               <></>
             ) : (
-              <tr key={task._id}>
-                <th>
-                  <label>
-                    <input
-                      onChange={(e) => {
-                        taskCompleted(e, task);
-                      }}
-                      type="checkbox"
-                      class="checkbox"
-                    />
-                  </label>
-                </th>
-                <td>{task._id}</td>
-                <td className="re">
-                  <div class="font-bold">{task.TaskTitle}</div>
-                </td>
-
-                <th>
-                  <button
-                    onClick={(task) => {
-                      console.log(task._id);
-                    }}
-                    class="btn btn-ghost btn-xs capitalize text-sm"
-                  >
-                    Edit
-                  </button>
-                </th>
-              </tr>
+              <TableRow task={task} taskCompleted={taskCompleted}></TableRow>
             )
           )}
         </tbody>

@@ -26,7 +26,7 @@ const CompletedTaskTable = () => {
             </th>
             <th>Task Title</th>
 
-            <th></th>
+            {/* <th></th> */}
           </tr>
         </thead>
         <tbody>
@@ -36,18 +36,12 @@ const CompletedTaskTable = () => {
               <tr>
                 <th>
                   <label>
-                    <input type="checkbox" class="checkbox" />
+                    <input type="checkbox" class="checkbox" checked />
                   </label>
                 </th>
-                <td className="re">
+                <td className="">
                   <div class="font-bold">{task.TaskTitle}</div>
                 </td>
-
-                <th>
-                  <button class="btn btn-ghost btn-xs capitalize text-sm">
-                    Edit
-                  </button>
-                </th>
               </tr>
             ) : (
               <></>

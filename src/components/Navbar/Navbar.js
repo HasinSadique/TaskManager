@@ -29,7 +29,7 @@ const Navbar = () => {
               <a href="completedTasks">Completed Tasks</a>
             </li>
             <li tabindex="0">
-              <a href="to-do" class="justify-between">
+              <a href="/" class="justify-between">
                 To-Do
               </a>
             </li>
@@ -48,7 +48,7 @@ const Navbar = () => {
             <a href="completedTasks"> Completed Tasks</a>
           </li>
           <li tabindex="0">
-            <a href="to-do" class="justify-between">
+            <a href="/" class="justify-between">
               To-Do
             </a>
           </li>
@@ -57,9 +57,9 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div class="navbar-end">
+      {/* <div class="navbar-end">
         <a class="btn">Dark Mode</a>
-      </div>
+      </div> */}
     </div>
   );
 };

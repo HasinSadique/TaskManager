@@ -32,9 +32,9 @@ const ToDo = () => {
     }
   };
   return (
-    <div className="mx-20 h-screen ">
+    <div className="lg:mx-20 h-screen ">
       <h1 className="mt-10 mb-20 text-2xl font-semibold">
-        Hello user, welcome to your daily task manager.
+        Welcome to your daily task manager.
       </h1>
       <section className=" flex ml-5 mb-3">
         <div class="form-control w-full max-w-xs">
@@ -45,7 +45,7 @@ const ToDo = () => {
             class="input input-bordered w-full max-w-xs"
           />
         </div>
-        <button className="btn ml-1 normal-case">Add a task</button>
+        {/* <button onClick={} className="btn ml-1 normal-case">Add a task</button> */}
       </section>
       <TaskTable></TaskTable>
     </div>
