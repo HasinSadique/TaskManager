@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <div className="h-screen">
-      <h1>Hello</h1>
+      <h1>Hello User, You have </h1>
       <p className="text-left">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id repellendus
         deserunt dicta maxime modi quasi, incidunt natus itaque adipisci eveniet
